@@ -194,7 +194,7 @@ def save_hit_removal(hits, saves):
         # print(saves)
     return hits
     
-def parry_calculator(attacker_hits, defender_hits, attacker_defensive, attacker_shield, attacker_normal_damage, attacker_crit_damage, defender_HP):
+def parry_calculator(attacker_hits, defender_hits, attacker_defensive, attacker_shield, attacker_normal_damage, attacker_crit_damage, defender_HP, defender_brutal):
     strike = 0 # 0 means parry, 1 means strike
     dmg = 0 # Damage inflicted by attacker, starting at 0
     if attacker_defensive == 0: # If attacker is aggressive, it will always choose to deal damage
@@ -209,7 +209,7 @@ def parry_calculator(attacker_hits, defender_hits, attacker_defensive, attacker_
                 defender_hits[2] += -1
             elif attacker_shield and defender_hits[0] > 0: # If wielding a shield and defender has no crits left, a normal hit can be removed instead
                 defender_hits[0] += -1
-        elif attacker_hits[0] > 0 and defender_hits[0] > 0: # If defensive and can't remove critical hits, try to remove a regular hit instead
+        elif attacker_hits[0] > 0 and defender_hits[0] > 0 and defender_brutal == 0: # If defensive and can't remove critical hits, try to remove a regular hit instead (does not work if defender's weapon has Brutal rule)
             attacker_hits[0] += -1
             defender_hits[0] += -1
             if attacker_shield and defender_hits[0] > 0: # If wielding a shield, another defender normal hit can be removed
@@ -219,7 +219,7 @@ def parry_calculator(attacker_hits, defender_hits, attacker_defensive, attacker_
             defender_hits[0] += -1
             if attacker_shield and defender_hits[0] > 0: # If wielding a shield, another defender normal hit can be removed
                 defender_hits[0] += -1
-        else: # If defensive but only has normal hits left and defender has only crits, or if defender has no hits left at all, attack instead
+        else: # If defensive but only has normal hits left and defender has only crits, or if defender has no hits left at all, or if attacker only has normal hits left and defender's weapon has Brutal rule, then attack instead
             strike = 1
     
     if strike == 1:
@@ -259,12 +259,12 @@ def dmg_calculator(a,d, FF, a_HP, d_HP): # Whoever is acting first is labelled a
 
         while attacker_hits[0] + attacker_hits[2] + defender_hits[0] + defender_hits[2] > 0: # If there are any hits left to allocate, run hit allocation
             if attacker_hits[0] + attacker_hits[2] > 0: # If attacker has hits left, allocate one of them
-                attacker_hits, defender_hits, dmg = parry_calculator(attacker_hits, defender_hits, a['defensive'], a['shield'], a['D'], a['CD'], d_HP)
+                attacker_hits, defender_hits, dmg = parry_calculator(attacker_hits, defender_hits, a['defensive'], a['shield'], a['D'], a['CD'], d_HP, d['Brutal'])
                 dmg_to_defender += dmg
                 if dmg_to_defender >= d_HP: # If damage from operator equals or exceeds target HP, stop hit allocation
                     break
             if defender_hits[0] + defender_hits[2] > 0: # If target has hits left, allocate one of them
-                defender_hits, attacker_hits, dmg = parry_calculator(defender_hits, attacker_hits, d['defensive'], d['shield'], d['D'], d['CD'], a_HP)
+                defender_hits, attacker_hits, dmg = parry_calculator(defender_hits, attacker_hits, d['defensive'], d['shield'], d['D'], d['CD'], a_HP, a['Brutal'])
                 dmg_to_attacker += dmg
                 if dmg_to_attacker >= a_HP: # If damage from target equals or exceeds operator HP, stop hit allocation
                     break
