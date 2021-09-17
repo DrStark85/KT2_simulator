@@ -57,4 +57,13 @@ Brutal
 NoCover
 Hot
 
-Stun is currently not implemented, so are also any special rules related to the character rather than its weapon. These are quite diverse and sometimes probably rather difficult to implement so I will most likely not be able to cover them entirely. I may make some attempt at including some of the more straightforward or important ones.
+Stun is currently not implemented, so are also any special rules related to the operator rather than its weapon. These are quite diverse and sometimes probably rather difficult to implement so I will most likely not be able to cover them entirely. I may make some attempt at including some of the more straightforward or important ones.
+
+Possible future features
+
+- A graphical interface would be nice, to not have to type into the code every time a new operative, target or setting is chosen.
+- Implementing Stun and some operator-specific rules.
+- Improved parry logic.
+- Implementing Inv saves (probably some very simplified decision process, if that is possible).
+- Printing the average W left for the operative/target in those simulations where each side has won.
+- Etc etc.
