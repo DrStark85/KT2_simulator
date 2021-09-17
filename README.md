@@ -38,6 +38,7 @@ Striking or parrying also contains some set logic. If the 'defensive' parameter 
 3. Try to remove a normal hit using its own normal hit.
 4. Try to remove a normal hit using a critical hit.
 5. Strike.
+
 This can certainly be improved on but seems to give rather plausible results in my simulations.
 
 Features, missing features etc
