@@ -66,5 +66,5 @@ Possible future features
 - Implementing Stun and some operator-specific rules.
 - Improved parry logic.
 - Implementing Inv saves (probably some very simplified decision process, if that is possible).
-- Printing the average W left for the operative/target in those simulations where each side has won.
+- Printing the average W left for the operative/target in those simulation runs where each side has won.
 - Etc etc.
