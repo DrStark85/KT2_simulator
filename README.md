@@ -9,7 +9,7 @@ Some disclaimers:
 
 Included files:
 simulator1.py is the script containing the logic for the simulation itself, split into a bunch of functions which I've tried to give some clarifying comments for.
-KT2_operative_statblocks.csv and KT2_weapon_statblocks contain the tables for different operative and weapon stats, in order to run them against each other. They currently only include a few Marine and Imperial Guard statlines and I will hopefully add more in the future, but you can make your own version of course. If you have more complete tables you can of course rewrite the data import in simulator1.py in order to handle yours instead.
+KT2_operative_statblocks.csv and KT2_weapon_statblocks.csv contain the tables for different operative and weapon stats, in order to run them against each other. They currently only include a few Marine and Imperial Guard statlines and I will hopefully add more in the future, but you can make your own version of course. If you have more complete tables you can of course rewrite the data import in simulator1.py in order to handle yours instead.
 
 Inputs:
 
