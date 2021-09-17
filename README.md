@@ -13,7 +13,7 @@ KT2_operative_statblocks.csv and KT2_weapon_statblocks.csv contain the tables fo
 
 Inputs:
 
-1. The simulator requires you to set the operator (your miniature) and the target (the opponent's miniature). Note that these two could basically be used interchangeably, but it helps using clear names for them. This is done by entering which rows in the statblock data will be used as well as how many cover dice each has, which tactic they will use in hand-to-hand (aggressive or defensive) and whether they have a combat shield.
+1. The simulator requires you to set the operator (your miniature) and the target (the opponent's miniature). Note that these two could basically be used interchangeably, but it helps using clear names for them. This is done by entering which rows in the statblock data will be used as well as how many cover dice each has, which tactic they will use in hand-to-hand (aggressive or defensive) and whether they have a storm shield.
 
 2. Other inputs are:
 - Who will go first (operative_first set to 1 or 0).
