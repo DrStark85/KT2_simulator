@@ -20,7 +20,7 @@ Inputs:
 - Whether simulating a firefight or hand-to-hand (FF set to 1 or 0).
 - How many turns (or "turning points" for those who buy into the newspeak of the rulebook) the simulation will maximally run. If you just want to see the results of one turn of shooting, finding out the likelihood of taking down a target in one shooting action or something such, just set this to 1.
 - Whether the turn order will be randomized after the first. Setting random_order to 0 means that the same order as for the first turn is maintained, i.e. if you set operative_first to 1 the operative will act first in every turn. Setting random_order to 1 means that it is randomized in the same way as determining who starts activations in each turn so it's what it would look like if both players activate these figures as their first activations in the turn.
-- How many simulations to run. On my not particularly new computer running 10000 simulations take a few seconds.
+- How many simulations to run. On my not particularly new computer running 10000 simulations takes a few seconds.
 
 Outputs:
 
