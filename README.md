@@ -11,6 +11,9 @@ Included files:
 simulator1.py is the script containing the logic for the simulation itself, split into a bunch of functions which I've tried to give some clarifying comments for.
 KT2_operative_statblocks.csv and KT2_weapon_statblocks.csv contain the tables for different operative and weapon stats, in order to run them against each other. They currently only include a few Marine and Imperial Guard statlines and I will hopefully add more in the future, but you can make your own version of course. If you have more complete tables you can of course rewrite the data import in simulator1.py in order to handle yours instead.
 
+Graphical interface:
+The scripts now generates a web-based graphical interface which can be viewed in a browser (Firefox works for me, none others tested). Thanks to responsive features in the interface, this makes it considerably easier to alter various parameters and gives a fairly easy way of overviewing the current scenario.
+
 Inputs:
 
 1. The simulator requires you to set the operator (your miniature) and the target (the opponent's miniature). Note that these two could basically be used interchangeably, but it helps using clear names for them. This is done by entering which rows in the statblock data will be used as well as how many cover dice each has, which tactic they will use in hand-to-hand (aggressive or defensive) and whether they have a storm shield.
@@ -24,7 +27,7 @@ Inputs:
 
 Outputs:
 
-1. The script prints all data on the operative and target, then prints the probabilities of different outcomes.
+1. The script prints all data on the operative and target, then prints the probabilities of different outcomes as well as average wounds in the scenarios where the operator/target has won. It also prints a "weighted sum": (Operator win ratio * Num wounds when operator has won - Target win ratio * Num wounds when target has won) / num_simulations, which is an attempt at a "total score" to allow easy comparisons between e.g. different weapons.
 
 2. Most importantly, the script creates a histogram of different outcomes turn by turn. This provides a lot of information but can sometimes become a bit messy. The x axis is how many wounds the operative has left in each simulation after the target has been defeated, negative numbers mean that the target won and shows how many wounds it has left instead. Rounds are named as follows: A-Bxy. A is the turn number, B is whether it's in the first or second figure's activation and xy is either 'op' or 'ta' to indicate whether it's in the operative's or the target's activation. This is because if using random activation order, the operative might be attacking first in the first turn but last in the second or vice versa.
 
@@ -57,14 +60,18 @@ CritMW
 Brutal
 NoCover
 Hot
+Stun
 
-Stun is currently not implemented, so are also any special rules related to the operator rather than its weapon. These are quite diverse and sometimes probably rather difficult to implement so I will most likely not be able to cover them entirely. I may make some attempt at including some of the more straightforward or important ones.
+Any special rules related to the operator rather than its weapon are currently not implemented. These are quite diverse and sometimes probably rather difficult to implement so I will most likely not be able to cover them entirely. I may make some attempt at including some of the more straightforward or important ones.
 
 Possible future features
 
-- A graphical interface would be nice, to not have to type into the code every time a new operative, target or setting is chosen.
-- Implementing Stun and some operator-specific rules.
+- Done! A graphical interface would be nice, to not have to type into the code every time a new operative, target or setting is chosen.
+- Done! Implementing Stun.
+- Implementing some operator-specific rules.
+- Make complete tables of operators and weapons.
+- Make each operator only able to select weapons allowed for that operator.
 - Improved parry logic.
 - Implementing Inv saves (probably some very simplified decision process, if that is possible).
-- Printing the average W left for the operative/target in those simulation runs where each side has won.
+- DONE! Printing the average W left for the operative/target in those simulation runs where each side has won.
 - Etc etc.
