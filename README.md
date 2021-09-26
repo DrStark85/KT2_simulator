@@ -4,12 +4,12 @@ Simulator for analysis of different aspects within the miniature game Warhammer 
 Some disclaimers:
 - I am far from a professional developer, just dabbling in Python.
 - This is a hobby project which has grown organically without any real plan.
-- At the moment the code is fully workable and incorporates a bunch of settings, but it's in an unfinished state with very little optimization and barely cleaned up at all.
+- At the moment the code is fully workable and incorporates a bunch of settings, but it's in an unfinished state with very little optimization and barely cleaned up at all.il
 - This repository is probably only relevant for people who either a) are playing Games Workshop's miniature wargame Kill Team v. 2.0 or b) want a good laugh at how a home-taught programmer like me is writing code.
 
 Included files:
 simulator1.py is the script containing the logic for the simulation itself, split into a bunch of functions which I've tried to give some clarifying comments for.
-KT2_operative_statblocks.csv and KT2_weapon_statblocks.csv contain the tables for different operative and weapon stats, in order to run them against each other. They currently only include a few Marine and Imperial Guard statlines and I will hopefully add more in the future, but you can make your own version of course. If you have more complete tables you can of course rewrite the data import in simulator1.py in order to handle yours instead.
+op_data.csv and weap_data.csv contain the tables for different operative and weapon stats, in order to run them against each other. I've been able to import data compiled by another person, meaning that these should now include all data in the game as it is right now. I've noted a few errors in the data and corrected these, there could of course be a few more.
 
 Graphical interface:
 The scripts now generates a web-based graphical interface which can be viewed in a browser (Firefox works for me, none others tested). Thanks to responsive features in the interface, this makes it considerably easier to alter various parameters and gives a fairly easy way of overviewing the current scenario.
@@ -66,11 +66,11 @@ Any special rules related to the operator rather than its weapon are currently n
 
 Possible future features
 
-- Done! A graphical interface would be nice, to not have to type into the code every time a new operative, target or setting is chosen.
-- Done! Implementing Stun.
+- DONE! A graphical interface would be nice, to not have to type into the code every time a new operative, target or setting is chosen.
+- DONE! Implementing Stun.
 - Implementing some operator-specific rules.
-- Make complete tables of operators and weapons.
-- Make each operator only able to select weapons allowed for that operator.
+- DONE! Make complete tables of operators and weapons.
+- DONE! Make each operator only able to select weapons allowed for that operator.
 - Improved parry logic.
 - Implementing Inv saves (probably some very simplified decision process, if that is possible).
 - DONE! Printing the average W left for the operative/target in those simulation runs where each side has won.
