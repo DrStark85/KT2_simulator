@@ -48,6 +48,13 @@ def simulator(operative, target, operative_first=1, FF=1, turns_max=4, random_or
     turn_counter = 0
     operative_HP = operative['W']
     target_HP = target['W']
+    
+    # Checking if Grav rule applies
+    if operative['Grav'] == True and target['SV'] <= 3:
+        operative['Crit'] = 4
+    if target['Grav'] == True and operative['SV'] <= 3:
+        target['Crit'] = 4
+    
     while operative_HP > 0 and target_HP > 0 and turn_counter < turns_max: # This loops over turns
         turn_counter+=1
 
