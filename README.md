@@ -61,6 +61,7 @@ Brutal
 NoCover
 Hot
 Stun
+Grav
 
 Any special rules related to the operator rather than its weapon are currently not implemented. These are quite diverse and sometimes probably rather difficult to implement so I will most likely not be able to cover them entirely. I may make some attempt at including some of the more straightforward or important ones.
 
